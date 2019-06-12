@@ -2,6 +2,9 @@
 //! Requiring modules  --  START
 var Grass = require("./modules/grass.js");
 var Xotaker = require("./modules/xotaker.js");
+var Gishatich = require("./modules/gishatich.js");
+var Clearer = require("./modules/clearer.js");
+var Vulcanum = require("./modules/vulcanum.js");
 let random = require('./modules/random');
 //! Requiring modules  --  END
 
@@ -9,6 +12,9 @@ let random = require('./modules/random');
 //! Setting global arrays  --  START
 grassArr = [];
 xotakerArr = [];
+gishtichArr = [];
+clearerArr = [];
+vulcanumArr = [];
 matrix = [];
 grassHashiv = 0;
 //! Setting global arrays  -- END
@@ -17,7 +23,7 @@ grassHashiv = 0;
 
 
 //! Creating MATRIX -- START
-function matrixGenerator(matrixSize, grass, xotaker, grassEaterEater, waterArr, fireArr) {
+function matrixGenerator(matrixSize, grass, xotaker, gishatich, clearer, vulcanum) {
     for (let i = 0; i < matrixSize; i++) {
         matrix[i] = [];
         for (let o = 0; o < matrixSize; o++) {
@@ -34,23 +40,23 @@ function matrixGenerator(matrixSize, grass, xotaker, grassEaterEater, waterArr, 
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 2;
     }
-    for (let i = 0; i < grassEaterEater; i++) {
+    for (let i = 0; i < gishatich; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 3;
     }
-    for (let i = 0; i < waterArr; i++) {
+    for (let i = 0; i < clearer; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 4;
     }
-    for (let i = 0; i < fireArr; i++) {
+    for (let i = 0; i < vulcanum; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(20, 1, 1);
+matrixGenerator(30, 10, 10, 10, 10, 10);
 //! Creating MATRIX -- END
 
 
@@ -112,4 +118,4 @@ function game() {
 
 
 
-setInterval(game, 100);
+setInterval(game, 1000);
