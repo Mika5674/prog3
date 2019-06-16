@@ -126,21 +126,22 @@ function game() {
         }
     }
     if (xotakerArr[0] !== undefined) {
-        for (var i in xotakerArr) {
-            xotakerArr[i].eat();
+        for (var i in xotakerArr) { 
             xotakerArr[i].move();
+            xotakerArr[i].eat();
             xotakerArr[i].mult();
             xotakerArr[i].die();
         }
     }
     if (gishatichArr[0] !== undefined) {
         for (var i in gishatichArr) {
-            gishatichArr[i].eat();
             gishatichArr[i].move();
+            gishatichArr[i].eat();
             gishatichArr[i].mult();
             gishatichArr[i].die();
         }
     }
+    console.log('GISHATICH', matrix);
     if (clearerArr[0] !== undefined) {
         for (var i in clearerArr) {
             clearerArr[i].move();
@@ -167,6 +168,7 @@ function game() {
     }
 
     //! Send data over the socket to clients who listens "data"
+    console.log('FINAL', matrix);
     io.sockets.emit("data", sendData);
 }
 
