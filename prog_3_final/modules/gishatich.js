@@ -51,7 +51,7 @@ module.exports = class Gishatich extends living_creature{
         var gr = random(this.chooseCell(1))
         var xt = random(this.chooseCell(2))
         if (gr && this.multiply > 5) {
-            this.energy += 1;
+            this.energy += 1
             var newX = gr[0]
             var newY = gr[1]
             matrix[newY][newX] = 3
@@ -69,7 +69,7 @@ module.exports = class Gishatich extends living_creature{
             this.x = newX
         }
         if (xt && this.multiply > 5) {
-            this.energy += 2;
+            this.energy += 2
             var newX = xt[0]
             var newY = xt[1]
             matrix[newY][newX] = 3

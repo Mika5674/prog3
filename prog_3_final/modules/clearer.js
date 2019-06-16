@@ -1,4 +1,3 @@
-var living_creature = require("./living_creature");
 var random = require("./random");
 
 module.exports = class Clearer{
@@ -214,7 +213,7 @@ module.exports = class Clearer{
         if (empty) {
             var newX = empty[0]
             var newY = empty[1]
-            matrix[newY][newX] = 5
+            matrix[newY][newX] = 4
             matrix[this.y][this.x] = 0
             this.x = newX;
             this.y = newY;
@@ -225,7 +224,7 @@ module.exports = class Clearer{
         var grass = this.chooseCell2(1);
         var xotaker = this.chooseCell2(2);
         var gishatich = this.chooseCell2(3);
-        var vulcanum = this.chooseCell2(4);
+        var vulcanum = this.chooseCell2(5);
         var lava = this.chooseCell2(6);
         var qar = this.chooseCell2(7);
         if(this.multiply > 3){

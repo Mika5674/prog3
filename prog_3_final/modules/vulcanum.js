@@ -98,12 +98,15 @@ module.exports = class Vulcanum {
         var xotaker = random(this.chooseCell(2));
         var gishatich = random(this.chooseCell(3));
             if(this.multiply < 45){
-               if (empty && this.multiply > 10) {
-                var newX = empty[0]
-                var newY = empty[1]
-                matrix[newY][newX] = 6
-                var newLava = new Lava(newX, newY)
-                lavaArr.push(newLava)
+                if (this.multiply > 10){
+                    lavaHashiv++
+                }
+                if (empty && this.multiply > 10) {
+                    var newX = empty[0]
+                    var newY = empty[1]
+                    matrix[newY][newX] = 6
+                    var newLava = new Lava(newX, newY)
+                    lavaArr.push(newLava)     
                 }
                 if (grass && this.multiply > 10) {
                     var newX = grass[0]
@@ -152,6 +155,7 @@ module.exports = class Vulcanum {
         var lava = random(this.chooseCell(6))
         
         if(lava && this.multiply > 26){
+            qarHashiv++;
             var newY = lava[1]
             var newX = lava[0]
             matrix[newY][newX] = 7

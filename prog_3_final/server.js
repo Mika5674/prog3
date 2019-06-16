@@ -16,12 +16,17 @@ gishatichArr = [];
 clearerArr = [];
 vulcanumArr = [];
 lavaArr = [];
+qarArr = [];
 matrix = [];
 
 
 grassHashiv = 0;
 xotakerHashiv = 0;
 gishatichHashiv = 0;
+clearerHashiv = 0;
+vulcanumHashiv = 0;
+lavaHashiv = 0;
+qarHashiv = 0;
 //! Setting global arrays  -- END
 
 
@@ -61,7 +66,7 @@ function matrixGenerator(matrixSize, grass, xotaker, gishatich, clearer, vulcanu
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(30, 10, 10, 10, 10, 10);
+matrixGenerator(30, 30, 20, 10, 3, 4);
 //! Creating MATRIX -- END
 
 
@@ -102,10 +107,12 @@ function creatingObjects() {
             else if (matrix[y][x] == 4) {
                 var clearer = new Clearer(x, y);
                 clearerArr.push(clearer);
+                clearerHashiv++;
             } 
             else if (matrix[y][x] == 5) {
                 var vulcanum = new Vulcanum(x, y);
                 vulcanumArr.push(vulcanum);
+                vulcanumHashiv++;
             } 
         }
     }
@@ -152,7 +159,11 @@ function game() {
         matrix: matrix,
         grassCounter: grassHashiv,
         xotakerCounter: xotakerHashiv,
-        gishatichCounter: gishatichHashiv
+        gishatichCounter: gishatichHashiv,
+        clearerCounter: clearerHashiv,
+        vulcanumCounter: vulcanumHashiv,
+        lavaCounter: lavaHashiv,
+        qarCounter: qarHashiv
     }
 
     //! Send data over the socket to clients who listens "data"
@@ -161,4 +172,4 @@ function game() {
 
 
 
-setInterval(game, 1000);
+setInterval(game, 300);
