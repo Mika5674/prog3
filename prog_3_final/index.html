@@ -17,7 +17,9 @@
             padding: 20px;
             text-align: center;
         }
-
+        table{
+            margin: auto;
+        }
         body {
             font-family: 'Noto Sans', sans-serif !important;
         }
@@ -27,9 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 	<script src="script.js"></script>
-
-
-    <table class="table table-hover">
+         <table  class="table table-hover">
         <thead>
             <tr>
                 <h1>Ծրագրավորում III Երևան</h1>
@@ -44,7 +44,7 @@
                 <th scope="col">Ծնվել է</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             <tr>
                 <th scope="row">1</th>
                 <td scope="row" style="background-color:green;"></td>
@@ -91,5 +91,7 @@
             </tr>
         </tbody>
     </table>
+   
+    <h1 id="season"></h1>
 </body>
 </html>

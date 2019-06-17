@@ -66,7 +66,7 @@ function matrixGenerator(matrixSize, grass, xotaker, gishatich, clearer, vulcanu
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(30, 30, 20, 10, 3, 4);
+matrixGenerator(30, 30, 30, 10, 3, 4);
 //! Creating MATRIX -- END
 
 
@@ -119,6 +119,8 @@ function creatingObjects() {
 }
 creatingObjects();
 
+var multiply = 0;
+
 function game() {
     if (grassArr[0] !== undefined) {
         for (var i in grassArr) {
@@ -141,7 +143,6 @@ function game() {
             gishatichArr[i].die();
         }
     }
-    console.log('GISHATICH', matrix);
     if (clearerArr[0] !== undefined) {
         for (var i in clearerArr) {
             clearerArr[i].move();
@@ -155,8 +156,33 @@ function game() {
         }
     }
 
+var season;
+
+multiply++;
+
+if (multiply <= 25) {
+    season = "Spring";
+}
+else if (multiply > 25 && multiply <= 50) {
+    season = "Summer";
+}
+else if (multiply > 50 && multiply <= 75) {
+
+    season = "Autumn";
+}
+else if (multiply > 75 && multiply <= 100) {
+    season = "Winter";
+}
+else {
+    multiply = 0;
+}
+
+
+    
+
     //! Object to send
     let sendData = {
+        season: season,
         matrix: matrix,
         grassCounter: grassHashiv,
         xotakerCounter: xotakerHashiv,
@@ -168,7 +194,6 @@ function game() {
     }
 
     //! Send data over the socket to clients who listens "data"
-    console.log('FINAL', matrix);
     io.sockets.emit("data", sendData);
 }
 
