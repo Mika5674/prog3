@@ -99,14 +99,15 @@ module.exports = class Vulcanum {
         var gishatich = random(this.chooseCell(3));
             if(this.multiply < 45){
                 if (this.multiply > 10){
-                    lavaHashiv++
+                    
                 }
                 if (empty && this.multiply > 10) {
                     var newX = empty[0]
                     var newY = empty[1]
                     matrix[newY][newX] = 6
                     var newLava = new Lava(newX, newY)
-                    lavaArr.push(newLava)     
+                    lavaArr.push(newLava) 
+                    lavaHashiv++    
                 }
                 if (grass && this.multiply > 10) {
                     var newX = grass[0]
@@ -114,6 +115,7 @@ module.exports = class Vulcanum {
                     matrix[newY][newX] = 6
                     var newLava = new Lava(newX,newY)
                     lavaArr.push(newLava)
+                    lavaHashiv++
 
                     for (var i in grassArr) {
                         if (grassArr[i].x == newX && grassArr[i].y == newY) {
@@ -127,6 +129,7 @@ module.exports = class Vulcanum {
                     matrix[newY][newX] = 6
                     var newLava = new Lava(newX, newY)
                     lavaArr.push(newLava)
+                    lavaHashiv++
 
                     for (var i in xotakerArr) {
                         if (xotakerArr[i].x == newX && xotakerArr[i].y == newY) {
@@ -140,6 +143,7 @@ module.exports = class Vulcanum {
                     matrix[newY][newX] = 6
                     var newLava = new Lava(newX, newY)
                     lavaArr.push(newLava)
+                    lavaHashiv++
 
                     for (var i in gishatichArr) {
                         if (gishatichArr[i].x == newX && gishatichArr[i].y == newY) {
@@ -161,6 +165,7 @@ module.exports = class Vulcanum {
             matrix[newY][newX] = 7
             var qr = new Qar(newX, newY)
             qarArr.push(qr)
+            
             for (var i in lavaArr) {
                 if (lavaArr[i].x == newX && lavaArr[i].y == newY) {
                     lavaArr.splice(i, 1);

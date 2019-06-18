@@ -150,9 +150,9 @@ function game() {
         }
     }
     if (vulcanumArr[0] !== undefined) {
-        for (var i in vulcanumArr) {
-            vulcanumArr[i].mult();
+        for (var i in vulcanumArr) { 
             vulcanumArr[i].qaranal();
+            vulcanumArr[i].mult();
         }
     }
 
