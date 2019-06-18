@@ -12,7 +12,7 @@ function setup() {
     let grassCountElement = document.getElementById('grassCount');
     let grassEaterCountElement = document.getElementById('grassEaterCount');
     let gishatichCountElement = document.getElementById('gishatichCount');
-    let clearerCountElement = document.getElementById('clearerCount');
+    let bomberCountElement = document.getElementById('bomberCount');
     let vulcanumCountElement = document.getElementById('vulcanumCount');
     let lavaCountElement = document.getElementById('lavaCount');
     let qarCountElement = document.getElementById('qarCount');
@@ -28,7 +28,7 @@ function setup() {
         grassCountElement.innerText = data.grassCounter;
         grassEaterCountElement.innerText = data.xotakerCounter;
         gishatichCountElement.innerText = data.gishatichCounter;
-        clearerCountElement.innerText = data.clearerCounter;
+        bomberCountElement.innerText = data.bomberCounter;
         vulcanumCountElement.innerText = data.vulcanumCounter;
         lavaCountElement.innerText = data.lavaCounter;
         qarCountElement.innerText = data.qarCounter;

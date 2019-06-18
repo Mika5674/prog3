@@ -5,6 +5,7 @@ module.exports = class Xotaker extends living_creature{
     constructor(x, y, index) {
        super(x,y,index);
         this.energy = 6;
+        this.moveEnergy = 0;
     }
     getNewDirections() {
         this.directions = [
@@ -44,6 +45,20 @@ module.exports = class Xotaker extends living_creature{
             matrix[this.y][this.x] = 0
             this.x = newX;
             this.y = newY;
+        }
+    }
+    moveWinter() {
+        var empty = random(this.chooseCell(0))
+        this.energy--;
+        this.moveEnergy++;
+        if (empty && this.moveEnergy > 3) {
+            var newX = empty[0]
+            var newY = empty[1]
+            matrix[newY][newX] = 2
+            matrix[this.y][this.x] = 0
+            this.x = newX;
+            this.y = newY;
+            this.moveEnergy = 0;
         }
     }
     eat() {

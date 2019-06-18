@@ -1,6 +1,6 @@
 var random = require("./random");
 
-module.exports = class Clearer{
+module.exports = class Bomber{
      constructor(x, y, index) {
         this.x = x;
         this.y = y;
