@@ -209,7 +209,7 @@ module.exports = class Bomber{
     }
 
     move(){
-        var empty = random(this.chooseCell1(0))
+        var empty = random(this.chooseCell2(0))
         if (empty) {
             var newX = empty[0]
             var newY = empty[1]
@@ -218,6 +218,121 @@ module.exports = class Bomber{
             this.x = newX;
             this.y = newY;
         }
+    }
+    clearSummer(){
+        this.multiply++;
+        var grass = this.chooseCell1(1);
+        var xotaker = this.chooseCell1(2);
+        var gishatich = this.chooseCell1(3);
+        var vulcanum = this.chooseCell1(5);
+        var lava = this.chooseCell1(6);
+        var qar = this.chooseCell1(7);
+        if(this.multiply > 3){
+            if(grass){
+           for(var i in grass){
+                var empty = grass[i]
+                var newY = empty[1]
+                var newX = empty[0]
+                matrix[newY][newX] = 0;
+
+                for (var i in grassArr) {
+                    if (grassArr[i].x == newX && grassArr[i].y == newY) {
+                        grassArr.splice(i, 1);
+
+                        break;
+                    }
+                } 
+            }
+            
+            this.multiply = 0;
+        }
+        if(xotaker){
+           for(var i in xotaker){
+                var empty = xotaker[i]
+                var newY = empty[1]
+                var newX = empty[0]
+                matrix[newY][newX] = 0;
+
+                for (var i in xotakerArr) {
+                    if (xotakerArr[i].x == newX && xotakerArr[i].y == newY) {
+                        xotakerArr.splice(i, 1);
+
+                        break;
+                    }
+                }
+            }
+            
+        }
+        if(gishatich){
+           for(var i in gishatich){
+                var empty = gishatich[i]
+                var newY = empty[1]
+                var newX = empty[0]
+                matrix[newY][newX] = 0;
+
+                for (var i in gishatichArr) {
+                    if (gishatichArr[i].x == newX && gishatichArr[i].y == newY) {
+                        gishatichArr.splice(i, 1);
+
+                        break;
+                    }
+                }
+            }
+            
+        }
+        if(vulcanum){
+           for(var i in vulcanum){
+                var empty = vulcanum[i]
+                var newY = empty[1]
+                var newX = empty[0]
+                matrix[newY][newX] = 0;
+
+                for (var i in vulcanumArr) {
+                    if (vulcanumArr[i].x == newX && vulcanumArr[i].y == newY) {
+                        vulcanumArr.splice(i, 1);
+
+                        break;
+                    }
+                }
+            }
+            
+        }
+        if(lava){
+           for(var i in lava){
+                var empty = lava[i]
+                var newY = empty[1]
+                var newX = empty[0]
+                matrix[newY][newX] = 0;
+
+                for (var i in lavaArr) {
+                    if (lavaArr[i].x == newX && lavaArr[i].y == newY) {
+                        lavaArr.splice(i, 1);
+
+                        break;
+                    }
+                }
+            }
+            
+        }
+        if(qar){
+           for(var i in qar){
+                var empty = qar[i]
+                var newY = empty[1]
+                var newX = empty[0]
+                matrix[newY][newX] = 0;
+
+                for (var i in qarArr) {
+                    if (qarArr[i].x == newX && qarArr[i].y == newY) {
+                        qarArr.splice(i, 1);
+
+                        break;
+                    }
+                }
+            }
+            
+         }
+        }
+        
     }
     clear(){
         this.multiply++;

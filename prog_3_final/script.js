@@ -21,6 +21,27 @@ function setup() {
 
     socket.on("data", drawCreatures);
 
+    // var mlt = 0;
+
+    // function up(){
+    //     if (data.season == "Spring") {
+    //         mlt = 26;
+    //     }
+    //     else if (data.season == "Summer") {
+    //         mlt = 51;
+    //     }
+    //     else if (data.season == "Autumn") {
+    //         mlt = 76;
+    //     }
+    //     else if (data.season == "Winter") {
+    //         mlt = 0;
+    //     }
+    //     let seasonChanger = {
+    //         mlt: mlt
+    //     }
+        
+    //     io.sockets.emit("seas",seasonChanger);
+    // }
     function drawCreatures(data) {
         //! after getting data pass it to matrix variable
 
@@ -73,7 +94,11 @@ function setup() {
                 } else if (matrix[i][j] == 7) {
                     fill('grey');
                     rect(j * side, i * side, side, side);
+                } else if (matrix[i][j] == 8) {
+                    fill('pink');
+                    rect(j * side, i * side, side, side);
                 }
+
             }
             
         }

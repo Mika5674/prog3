@@ -5,6 +5,7 @@ var Xotaker = require("./modules/xotaker.js");
 var Gishatich = require("./modules/gishatich.js");
 var Bomber = require("./modules/bomber.js");
 var Vulcanum = require("./modules/vulcanum.js");
+var Walkblock = require("./modules/walkblock.js")
 let random = require('./modules/random');
 //! Requiring modules  --  END
 
@@ -17,6 +18,7 @@ bomberArr = [];
 vulcanumArr = [];
 lavaArr = [];
 qarArr = [];
+walkblockArr = [];
 matrix = [];
 
 
@@ -33,7 +35,7 @@ qarHashiv = 0;
 
 
 //! Creating MATRIX -- START
-function matrixGenerator(matrixSize, grass, xotaker, gishatich, bomber, vulcanum) {
+function matrixGenerator(matrixSize, grass, xotaker, gishatich, bomber, vulcanum, walkblock) {
     for (let i = 0; i < matrixSize; i++) {
         matrix[i] = [];
         for (let o = 0; o < matrixSize; o++) {
@@ -65,8 +67,13 @@ function matrixGenerator(matrixSize, grass, xotaker, gishatich, bomber, vulcanum
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 5;
     }
+    for (let i = 0; i < walkblock; i++) {
+        let customX = Math.floor(random(matrixSize));
+        let customY = Math.floor(random(matrixSize));
+        matrix[customY][customX] = 8;
+    }
 }
-matrixGenerator(30, 30, 30, 10, 3, 4);
+matrixGenerator(30, 30, 30, 10, 3, 4, 1);
 //! Creating MATRIX -- END
 
 
@@ -114,6 +121,10 @@ function creatingObjects() {
                 vulcanumArr.push(vulcanum);
                 vulcanumHashiv++;
             } 
+            else if (matrix[y][x] == 8) {
+                var walkblock = new Walkblock(x, y);
+                walkblockArr.push(walkblock);
+            }
         }
     }
 }
@@ -122,14 +133,21 @@ creatingObjects();
 
 var multiply = 0;
 
+
 function game() {
 
 var season;
 
+// socket.on("seas", seasonChanger);
+
+// if (seasonChanger.mlt != 0) {
+//     multiply = seasonChanger.mlt;
+// }
 
 if  (multiply == 100){
     multiply = 0;
 }
+
 if (multiply <= 25) {
     season = "Spring";
 }
@@ -145,6 +163,7 @@ else if (multiply > 75 && multiply <= 100) {
 }
 
 multiply++;
+
 
 if (grassArr[0] !== undefined && season == "Winter") {
     for (var i in grassArr) {
@@ -188,7 +207,13 @@ else{
         gishatichArr[i].die();
     }
 }
-if (bomberArr[0] !== undefined) {
+if (bomberArr[0] !== undefined && season == "Summer") {
+    for (var i in bomberArr) {
+        bomberArr[i].move();
+        bomberArr[i].clearSummer();
+    }
+}
+else{
     for (var i in bomberArr) {
         bomberArr[i].move();
         bomberArr[i].clear();

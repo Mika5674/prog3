@@ -29,13 +29,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 	<script src="script.js"></script>
+
          <table  class="table table-hover">
         <thead>
             <tr>
                 <h1>Ծրագրավորում III Երևան</h1>
             </tr>
             <tr>
-                <h1>Mikayel</h1>
+                <h1 id="demo">Mikayel</h1>
             </tr>
             <tr>
                 <th scope="col">#</th>
@@ -61,28 +62,28 @@
             <tr>
                 <th scope="row">1</th>
                 <td scope="row" style="background-color:green;"></td>
-                <td>Կանաչը խոտն է, որը բազմանում է 2 ցիկլը մեկ,մահանում է երբ նրան ուտում է խոտակերը, գիշատիչը, 
+                <td>Կանաչը խոտն է, որը բազմանում է 2 ցիկլը մեկ և 4 ցիկլը մեկ ձմռանը, մահանում է երբ նրան ուտում է խոտակերը, գիշատիչը, 
                 ոչնչացնւմ է Bomber կերպարը, կամ լավան:</td>
                 <td id="grassCount"></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td scope="row" style="background-color:yellow;"></td>
-                <td>Դեղինը խոտակերն է, որը բազմանում է 8 հատ խոտ ուտելուց հետո և մահանում է իր սկզբնական 6 էներգիան կորցնելուց հետո, կամ
+                <td>Դեղինը խոտակերն է, որը բազմանում է 8 հատ խոտ ուտելուց հետո, բայց չի բազմանւում ձմռանը ինչպես նաև երկու անգամ դանդաղ է շարժվում, և մահանում է իր սկզբնական 6 էներգիան կորցնելուց հետո, կամ
                     երբ նրան ուտում է գիշատիչը, ոչնչացնւմ է Bomber կերպարը, կամ լավան:</td>
                 <td id="grassEaterCount"></td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td scope="row" style="background-color:red;"></td>
-                <td>Կասրմիրը գիշատիչն է, որը բազմանում է 24 էներգիա հավաքելուց և մահանում է երբ կորցնում է իր սկզբնական 12 էներգիան կամ
+                <td>Կասրմիրը գիշատիչն է, որը բազմանում է 24 էներգիա հավաքելուց, բայց չի բազմանւում ձմռանը ինչպես նաև երկու անգամ դանդաղ է շարժվում, և մահանում է երբ կորցնում է իր սկզբնական 12 էներգիան կամ
                     երբ նրան ոչնչացնւմ է Bomber կերպարը, կամ լավան:</td>
                 <td id="gishatichCount"></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td scope="row" style="background-color:blue;"></td>
-                <td>Կապույսը Bomber կերպարն է, որը պարբերաբար ոչնչացնւմ է իր շուրջը գտնվող ամեն ինչ(կրկնակի շերտով) և անմահ է:</td>
+                <td>Կապույսը Bomber կերպարն է, որը պարբերաբար ոչնչացնւմ է իր շուրջը գտնվող ամեն ինչ կրկնակի շերտով և եռակի շերսով ամռանը ինչպես նաև անմահ է:</td>
                 <td id="bomberCount"></td>
             </tr>
             <tr>
@@ -107,5 +108,6 @@
     </table>
    
     <h1 id="season"></h1>
+    <h1><button onclick="up()" id="seasonBtn">Change Season</button></h1>
 </body>
 </html>
