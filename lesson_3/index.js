@@ -40,3 +40,5 @@ function main() {
 	fs.writeFileSync("obj.json", json_obj);
 }
 main();
+
+document.getElementById();

@@ -1,4 +1,4 @@
-
+document.getElementById();
 //! Requiring modules  --  START
 var Grass = require("./modules/grass.js");
 var Xotaker = require("./modules/xotaker.js");
@@ -66,10 +66,6 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-app.use(express.static("."));
-app.get('/', function (req, res) {
-    res.redirect('index.html');
-});
 server.listen(3000);
 //! SERVER STUFF END  --  END
 

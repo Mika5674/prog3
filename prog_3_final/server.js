@@ -73,7 +73,7 @@ function matrixGenerator(matrixSize, grass, xotaker, gishatich, bomber, vulcanum
         matrix[customY][customX] = 8;
     }
 }
-matrixGenerator(30, 30, 30, 10, 3, 4, 1);
+matrixGenerator(30, 30, 30, 10, 3, 4, 2);
 //! Creating MATRIX -- END
 
 
@@ -90,8 +90,6 @@ app.get('/', function (req, res) {
 });
 server.listen(3000);
 //! SERVER STUFF END  --  END
-
-
 
 function creatingObjects() {
     for (var y = 0; y < matrix.length; y++) {
@@ -138,11 +136,14 @@ function game() {
 
 var season;
 
-// socket.on("seas", seasonChanger);
-
-// if (seasonChanger.mlt != 0) {
-//     multiply = seasonChanger.mlt;
-// }
+io.on('connection', function (socket) {
+    socket.on("season change", function(data){
+    if (data !== undefined) {
+        multiply = data;
+    }
+    console.log(data);
+    });
+});
 
 if  (multiply == 100){
     multiply = 0;
@@ -225,7 +226,11 @@ if (vulcanumArr[0] !== undefined) {
         vulcanumArr[i].mult();
     }
 }
-
+// if (walkblockArr[0] !== undefined) {
+//     for (var i in vulcanumArr) { 
+//         walkblockArr[i].move();
+//     }
+// }
     //! Object to send
     let sendData = {
         season: season,

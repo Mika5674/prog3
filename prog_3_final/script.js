@@ -1,5 +1,5 @@
 
-//! Setup function fires automatically
+// ! Setup function fires automatically
 function setup() {
 
     var socket = io();
@@ -21,28 +21,29 @@ function setup() {
 
     socket.on("data", drawCreatures);
 
-    // var mlt = 0;
-
-    // function up(){
-    //     if (data.season == "Spring") {
-    //         mlt = 26;
-    //     }
-    //     else if (data.season == "Summer") {
-    //         mlt = 51;
-    //     }
-    //     else if (data.season == "Autumn") {
-    //         mlt = 76;
-    //     }
-    //     else if (data.season == "Winter") {
-    //         mlt = 0;
-    //     }
-    //     let seasonChanger = {
-    //         mlt: mlt
-    //     }
-        
-    //     io.sockets.emit("seas",seasonChanger);
-    // }
+    var mlt = 0;
+  
     function drawCreatures(data) {
+        var seasonBtn = document.getElementById("seasonBtn");
+        seasonBtn.onclick = seasonChanger;
+
+        function seasonChanger(){
+            if (data.season == "Spring") {
+                mlt = 26;
+            }
+            else if (data.season == "Summer") {
+                mlt = 51;
+            }
+            else if (data.season == "Autumn") {
+                mlt = 76;
+            }
+            else if (data.season == "Winter") {
+                mlt = 0;
+            }
+            socket.emit("season change", mlt);
+
+            console.log(mlt);
+        }
         //! after getting data pass it to matrix variable
 
         matrix = data.matrix;

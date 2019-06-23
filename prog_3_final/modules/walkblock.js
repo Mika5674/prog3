@@ -5,7 +5,7 @@ module.exports = class Walkblock {
 		this.y = y;
 	}
 
-	up(){
+	move(){
 		matrix[this.y][this.x] = 0
 		
 		this.y = this.y + 1;
